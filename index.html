@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trámites Express | Constancia Fiscal</title>
+    <title>Trámites Express | Constancia de Situación Fiscal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -15,9 +15,9 @@
                 <div class="bg-blue-600 p-2 rounded-lg shadow-md">
                     <i class="fas fa-bolt text-white"></i>
                 </div>
-                <span class="text-xl font-bold text-slate-700 tracking-tighter">TRÁMITES EXPRESS</span>
+                <span class="text-xl font-bold text-slate-700 tracking-tighter uppercase">Trámites Express</span>
             </div>
-            <div class="text-[10px] bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold uppercase">En Línea</div>
+            <div class="text-[10px] bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold uppercase animate-pulse">Servicio Activo</div>
         </div>
     </nav>
 
@@ -33,11 +33,11 @@
                 <div id="card-1" onclick="seleccionarOpcion(1)" class="cursor-pointer bg-white rounded-2xl shadow-lg border-4 border-blue-500 p-6 transform transition hover:scale-[1.02]">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="font-bold text-lg text-blue-600">Trámite Express</h3>
-                        <span class="bg-yellow-400 text-slate-900 text-[10px] font-black px-2 py-1 rounded">MÁS RÁPIDO</span>
+                        <span class="bg-yellow-400 text-slate-900 text-[10px] font-black px-2 py-1 rounded">15 MINUTOS</span>
                     </div>
                     <p class="text-xs text-slate-500 mb-4">Requiere RFC e ID CIF de tu cédula.</p>
                     <div class="flex justify-between items-end">
-                        <span class="text-slate-400 text-xs"><i class="far fa-clock mr-1"></i> 15 min</span>
+                        <span class="text-slate-400 text-xs"><i class="far fa-clock mr-1"></i> Entrega inmediata</span>
                         <span class="text-2xl font-black text-slate-800">$55.00</span>
                     </div>
                 </div>
@@ -46,67 +46,69 @@
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="font-bold text-lg text-slate-700">Búsqueda Especial</h3>
                     </div>
-                    <p class="text-xs text-slate-500 mb-4">Solo necesitas tu RFC (Sin ID CIF).</p>
+                    <p class="text-xs text-slate-500 mb-4">Solo necesitas tu RFC (Sin contraseña/CIF).</p>
                     <div class="flex justify-between items-end">
-                        <span class="text-slate-400 text-xs"><i class="far fa-clock mr-1"></i> 2 horas</span>
+                        <span class="text-slate-400 text-xs"><i class="far fa-clock mr-1"></i> 1 a 2 horas</span>
                         <span class="text-2xl font-black text-slate-800">$160.00</span>
                     </div>
                 </div>
             </div>
 
-            <div id="formulario-contenedor" class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200">
                 <div class="p-8">
-                    <h2 id="titulo-dinamico" class="text-xl font-bold text-slate-800 mb-6 flex items-center">
-                        <i class="fas fa-edit mr-3 text-blue-500"></i> Datos de la Solicitud
+                    <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center border-b pb-4">
+                        <i class="fas fa-file-invoice mr-3 text-blue-500"></i> Formulario de Solicitud
                     </h2>
 
-                    <form id="form-express" class="space-y-6">
+                    <form id="form-tramite" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">RFC del Contribuyente</label>
-                                <input type="text" id="rfc" name="rfc" placeholder="XXXX000000XXX" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none uppercase font-mono shadow-inner" required>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">RFC (13 caracteres)</label>
+                                <input type="text" id="rfc" name="rfc" placeholder="ABCD000000XXX" maxlength="13" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none uppercase font-mono shadow-inner" required>
                             </div>
                             <div id="contenedor-idcif">
                                 <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">ID CIF (11 dígitos)</label>
-                                <input type="text" id="idcif" name="idcif" placeholder="00000000000" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none font-mono shadow-inner">
+                                <input type="text" id="idcif" name="idcif" placeholder="00000000000" maxlength="11" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none font-mono shadow-inner">
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">WhatsApp de Contacto</label>
-                                <input type="tel" id="whatsapp" name="whatsapp" placeholder="Tu número a 10 dígitos" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none shadow-inner" required>
+                                <input type="tel" id="whatsapp" name="whatsapp" placeholder="10 dígitos" maxlength="10" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none shadow-inner" required>
                             </div>
                             <div>
-                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Correo Electrónico</label>
-                                <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none shadow-inner" required>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Correo para envío</label>
+                                <input type="email" id="email" name="email" placeholder="tu@correo.com" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none shadow-inner" required>
                             </div>
                         </div>
 
-                        <div class="bg-purple-50 rounded-2xl p-6 border border-purple-100">
+                        <div class="bg-blue-50 rounded-2xl p-6 border border-blue-100">
                             <div class="flex items-center justify-between mb-4">
-                                <h4 class="text-purple-700 font-bold text-sm uppercase tracking-tighter">Pagar con Transferencia (SPEI)</h4>
-                                <span id="monto-final" class="text-2xl font-black text-purple-900">$55.00</span>
+                                <h4 class="text-blue-700 font-bold text-sm uppercase tracking-tighter">Información de Pago (Transferencia)</h4>
+                                <span id="monto-final" class="text-2xl font-black text-blue-900">$55.00</span>
                             </div>
-                            <div class="space-y-2">
+                            <div class="space-y-3">
                                 <div class="flex justify-between text-xs">
-                                    <span class="text-purple-400 uppercase font-bold">Banco:</span>
-                                    <span class="font-bold text-slate-700 italic">Nu México</span>
+                                    <span class="text-blue-400 font-bold uppercase">Banco:</span>
+                                    <span class="font-bold text-slate-700">NU MÉXICO</span>
                                 </div>
-                                <div class="flex justify-between items-center bg-white p-3 rounded-xl border border-purple-200">
-                                    <span class="text-[10px] font-mono text-purple-800 font-bold select-all">638180010193901084</span>
-                                    <i class="far fa-copy text-purple-400"></i>
+                                <div class="flex justify-between items-center bg-white p-3 rounded-xl border border-blue-200">
+                                    <span class="text-xs font-mono text-blue-800 font-bold select-all tracking-wider">638180010193901084</span>
+                                    <button type="button" onclick="navigator.clipboard.writeText('638180010193901084')" class="text-blue-400 hover:text-blue-600">
+                                        <i class="far fa-copy"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 italic">Sube la foto del comprobante</label>
-                            <input type="file" id="comprobante" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white hover:file:bg-blue-700 cursor-pointer" required>
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Adjuntar Comprobante</label>
+                            <input type="file" id="comprobante" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-slate-800 file:text-white hover:file:bg-black cursor-pointer" required>
                         </div>
 
-                        <button type="submit" id="btn-submit" class="w-full bg-slate-900 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl hover:bg-black transition-all transform active:scale-95">
-                            Registrar Solicitud
+                        <button type="submit" id="btn-submit" class="w-full bg-blue-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl hover:bg-blue-700 transition-all transform active:scale-95">
+                            Enviar Solicitud
                         </button>
                     </form>
                 </div>
@@ -115,7 +117,8 @@
     </main>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzFyNfXhv-ZUK25ds_-osvaCmWlpcVA-dHXIJUnZByPqEkjtk-hEwl8AqXAYP0Nhvvc/exec';
+        // URL DE TU GOOGLE SCRIPT ACTUALIZADA
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwm-446e0guAyp43bC-P6dhCr_h2RV_QkmxU_bd5bGHiaqJ9_ZS6i0dvbpPeY9HwX2D/exec';
         let opcionActual = 1;
 
         function seleccionarOpcion(id) {
@@ -144,39 +147,40 @@
             }
         }
 
-        const form = document.getElementById('form-express');
+        const form = document.getElementById('form-tramite');
         form.addEventListener('submit', e => {
             e.preventDefault();
             const btn = document.getElementById('btn-submit');
             btn.disabled = true;
-            btn.innerText = "ENVIANDO DATOS...";
+            btn.innerText = "PROCESANDO ENVÍO...";
 
             const formData = new FormData();
             formData.append('opcion', opcionActual);
-            formData.append('rfc', document.getElementById('rfc').value);
+            formData.append('rfc', document.getElementById('rfc').value.toUpperCase());
             formData.append('idcif', opcionActual === 1 ? document.getElementById('idcif').value : "N/A");
             formData.append('whatsapp', document.getElementById('whatsapp').value);
             formData.append('email', document.getElementById('email').value);
-            formData.append('comprobante', "Cargado");
+            formData.append('comprobante', "Imagen Adjunta");
 
             fetch(scriptURL, { 
                 method: 'POST', 
-                mode: 'no-cors', // SOLUCIÓN AL ERROR DE ENVÍO
+                mode: 'no-cors', // ESTO ES LO QUE SOLUCIONA EL ERROR
                 body: formData
             })
             .then(() => {
-                alert('¡Solicitud registrada! Procesaremos tu documento y te avisaremos por WhatsApp.');
+                alert('¡Solicitud registrada correctamente! En un momento aparecerá en nuestro sistema y te contactaremos por WhatsApp.');
                 form.reset();
                 btn.disabled = false;
-                btn.innerText = "Registrar Solicitud";
+                btn.innerText = "Enviar Solicitud";
+                seleccionarOpcion(1); // Reset a opción 1
             })
             .catch(error => {
-                alert('Hubo un error de conexión. Por favor, intenta de nuevo.');
+                alert('Ocurrió un error. Verifica tu conexión a internet.');
                 btn.disabled = false;
-                btn.innerText = "Registrar Solicitud";
+                btn.innerText = "Enviar Solicitud";
             });
         });
     </script>
 </body>
-    </html>
-                        
+            </html>
+                    
