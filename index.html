@@ -3,65 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trámites Express | Solicitud</title>
+    <title>Trámites Express | WhatsApp</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="bg-slate-50 text-slate-800">
 
-    <nav class="bg-white shadow-sm py-4 border-b-2 border-blue-600 px-4">
-        <div class="container mx-auto font-bold uppercase tracking-tighter">Trámites Express</div>
+    <nav class="bg-white shadow-sm py-4 border-b-2 border-green-500 px-4">
+        <div class="container mx-auto font-bold uppercase tracking-tighter flex items-center">
+            <i class="fab fa-whatsapp text-green-500 mr-2 text-xl"></i>
+            Trámites Express
+        </div>
     </nav>
 
     <main class="container mx-auto px-4 py-8">
         <div class="max-w-md mx-auto bg-white rounded-3xl shadow-xl p-6 border border-slate-200">
-            <h2 class="text-xl font-bold mb-6 text-center">SOLICITUD DE CONSTANCIA</h2>
+            <h2 class="text-xl font-bold mb-6 text-center">SOLICITAR CONSTANCIA</h2>
             
-            <form id="form-tramite" class="space-y-4">
-                <input type="text" id="rfc" placeholder="RFC" maxlength="13" class="w-full p-4 bg-slate-50 border rounded-xl outline-none uppercase font-mono" required>
-                <input type="tel" id="whatsapp" placeholder="WHATSAPP (10 DÍGITOS)" maxlength="10" class="w-full p-4 bg-slate-50 border rounded-xl outline-none" required>
-                
-                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 text-center">
-                    <p class="text-[10px] font-bold text-blue-400">PAGO A CUENTA NU</p>
-                    <p class="font-mono font-bold text-blue-800">638180010193901084</p>
+            <form id="form-whatsapp" class="space-y-4">
+                <div>
+                    <label class="text-[10px] font-bold text-slate-400 uppercase ml-2">RFC del Cliente</label>
+                    <input type="text" id="rfc" placeholder="ABCD000000XXX" maxlength="13" class="w-full p-4 bg-slate-50 border rounded-xl outline-none uppercase font-mono shadow-inner" required>
                 </div>
 
-                <button type="submit" id="btn-submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold uppercase shadow-lg">Enviar Solicitud</button>
+                <div>
+                    <label class="text-[10px] font-bold text-slate-400 uppercase ml-2">WhatsApp de Contacto</label>
+                    <input type="tel" id="tel_cliente" placeholder="10 DÍGITOS" maxlength="10" class="w-full p-4 bg-slate-50 border rounded-xl outline-none shadow-inner" required>
+                </div>
+
+                <div class="bg-green-50 p-4 rounded-xl border border-green-100 text-center">
+                    <p class="text-[10px] font-bold text-green-600 uppercase">Pago Vía Transferencia</p>
+                    <p class="font-mono font-bold text-slate-700">638180010193901084</p>
+                </div>
+
+                <button type="submit" class="w-full bg-green-600 text-white py-4 rounded-xl font-bold uppercase shadow-lg hover:bg-green-700 transition-all flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i>
+                    Enviar por WhatsApp
+                </button>
             </form>
         </div>
     </main>
 
     <script>
-        // TUS DATOS DEL BOT
-        const TG_TOKEN = '8727329718:AAFdeqVvoCKNwM4fF-YPSUcxoL_s6jDVXUs';
-        const TG_CHAT_ID = '8779591826';
-
-        document.getElementById('form-tramite').addEventListener('submit', async (e) => {
+        document.getElementById('form-whatsapp').addEventListener('submit', function(e) {
             e.preventDefault();
-            const btn = document.getElementById('btn-submit');
-            btn.disabled = true;
-            btn.innerText = "ENVIANDO...";
 
-            const rfc = document.getElementById('rfc').value.toUpperCase();
-            const tel = document.getElementById('whatsapp').value;
+            // Configuración del receptor
+            const miTelefono = "525534451115"; // Tu número con código de país
             
-            // Formato de texto para que la App lo reconozca fácilmente
-            const texto = `NUEVO PEDIDO\nRFC: ${rfc}\nTel: ${tel}`;
+            // Datos del formulario
+            const rfc = document.getElementById('rfc').value.toUpperCase();
+            const telCliente = document.getElementById('tel_cliente').value;
+            const fecha = new Date().toLocaleString();
 
-            try {
-                // Enviamos el mensaje al bot
-                const url = `https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT_ID}&text=${encodeURIComponent(texto)}`;
-                await fetch(url);
-                
-                alert('¡Listo! Revisa tu WhatsApp pronto.');
-                document.getElementById('form-tramite').reset();
-            } catch (err) {
-                alert('Error al enviar. Intenta de nuevo.');
-            } finally {
-                btn.disabled = false;
-                btn.innerText = "Enviar Solicitud";
-            }
+            // Construir el mensaje
+            const mensaje = encodeURIComponent(
+                `🚀 *NUEVO PEDIDO DE TRÁMITE*\n\n` +
+                `🆔 *RFC:* ${rfc}\n` +
+                `📱 *Tel. Cliente:* ${telCliente}\n` +
+                `📅 *Fecha:* ${fecha}\n\n` +
+                `✅ Ya realicé mi pago. Quedo a la espera.`
+            );
+
+            // Crear el enlace de WhatsApp
+            const urlWhatsapp = `https://wa.me/${miTelefono}?text=${mensaje}`;
+
+            // Abrir WhatsApp en una nueva pestaña
+            window.open(urlWhatsapp, '_blank');
         });
     </script>
+
 </body>
 </html>
