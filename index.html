@@ -3,87 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trámites Express | Constancia</title>
+    <title>Trámites Express | Solicitud</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans">
+<body class="bg-slate-50 text-slate-800">
 
-    <nav class="bg-white shadow-sm py-4 border-b-2 border-blue-600">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="bg-blue-600 p-2 rounded-lg shadow-md"><i class="fas fa-bolt text-white"></i></div>
-                <span class="text-xl font-bold text-slate-700 uppercase">Trámites Express</span>
-            </div>
-            <div class="text-[10px] bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold animate-pulse">SERVIDOR ACTIVO</div>
-        </div>
+    <nav class="bg-white shadow-sm py-4 border-b-2 border-blue-600 px-4">
+        <div class="container mx-auto font-bold uppercase tracking-tighter">Trámites Express</div>
     </nav>
 
-    <header class="bg-slate-900 py-12 px-4 text-center text-white">
-        <h1 class="text-2xl font-bold mb-2 uppercase">Constancia de Situación Fiscal</h1>
-        <p class="text-slate-400 text-sm">Proceso seguro vía Telegram</p>
-    </header>
-
-    <main class="container mx-auto px-4 -mt-10 pb-12">
-        <div class="max-w-4xl mx-auto">
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-md mx-auto bg-white rounded-3xl shadow-xl p-6 border border-slate-200">
+            <h2 class="text-xl font-bold mb-6 text-center">SOLICITUD DE CONSTANCIA</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                <div id="card-1" onclick="seleccionarOpcion(1)" class="cursor-pointer bg-white rounded-2xl shadow-lg border-4 border-blue-500 p-6 transform transition hover:scale-[1.01]">
-                    <h3 class="font-bold text-blue-600 uppercase">Trámite Express</h3>
-                    <p class="text-xs text-slate-500 mt-2">RFC + ID CIF (15 min)</p>
-                    <div class="text-2xl font-black mt-4">$55.00</div>
+            <form id="form-tramite" class="space-y-4">
+                <input type="text" id="rfc" placeholder="RFC" maxlength="13" class="w-full p-4 bg-slate-50 border rounded-xl outline-none uppercase font-mono" required>
+                <input type="tel" id="whatsapp" placeholder="WHATSAPP (10 DÍGITOS)" maxlength="10" class="w-full p-4 bg-slate-50 border rounded-xl outline-none" required>
+                
+                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 text-center">
+                    <p class="text-[10px] font-bold text-blue-400">PAGO A CUENTA NU</p>
+                    <p class="font-mono font-bold text-blue-800">638180010193901084</p>
                 </div>
 
-                <div id="card-2" onclick="seleccionarOpcion(2)" class="cursor-pointer bg-white rounded-2xl shadow-lg border-4 border-transparent p-6 transform transition hover:scale-[1.01] opacity-60">
-                    <h3 class="font-bold text-slate-700 uppercase">Búsqueda Especial</h3>
-                    <p class="text-xs text-slate-500 mt-2">Solo RFC (1-2 horas)</p>
-                    <div class="text-2xl font-black mt-4">$160.00</div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 p-8">
-                <form id="form-tramite" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="text" id="rfc" placeholder="RFC (13 CARACTERES)" maxlength="13" class="w-full p-4 bg-slate-50 border rounded-2xl outline-none uppercase font-mono" required>
-                        <input type="text" id="idcif" placeholder="ID CIF (11 DÍGITOS)" maxlength="11" class="w-full p-4 bg-slate-50 border rounded-2xl outline-none font-mono">
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="tel" id="whatsapp" placeholder="WHATSAPP (10 DÍGITOS)" maxlength="10" class="w-full p-4 bg-slate-50 border rounded-2xl outline-none" required>
-                        <input type="email" id="email" placeholder="CORREO ELECTRÓNICO" class="w-full p-4 bg-slate-50 border rounded-2xl outline-none" required>
-                    </div>
-
-                    <div class="bg-blue-50 rounded-2xl p-6 border border-blue-100">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="text-blue-700 font-bold text-xs uppercase">Transferencia NU</span>
-                            <span id="monto-final" class="text-xl font-black text-blue-900">$55.00</span>
-                        </div>
-                        <div class="bg-white p-3 rounded-xl border border-blue-200 text-center font-mono font-bold text-blue-800 tracking-wider">
-                            638180010193901084
-                        </div>
-                    </div>
-
-                    <button type="submit" id="btn-submit" class="w-full bg-blue-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-blue-700 shadow-xl transition-all">
-                        Enviar Solicitud
-                    </button>
-                </form>
-            </div>
+                <button type="submit" id="btn-submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold uppercase shadow-lg">Enviar Solicitud</button>
+            </form>
         </div>
     </main>
 
     <script>
+        // TUS DATOS DEL BOT
         const TG_TOKEN = '8727329718:AAFdeqVvoCKNwM4fF-YPSUcxoL_s6jDVXUs';
         const TG_CHAT_ID = '8779591826';
-        let opcionActual = 1;
-
-        function seleccionarOpcion(id) {
-            opcionActual = id;
-            document.getElementById('card-1').style.borderColor = id === 1 ? "#3b82f6" : "transparent";
-            document.getElementById('card-1').style.opacity = id === 1 ? "1" : "0.6";
-            document.getElementById('card-2').style.borderColor = id === 2 ? "#334155" : "transparent";
-            document.getElementById('card-2').style.opacity = id === 2 ? "1" : "0.6";
-            document.getElementById('idcif').style.display = id === 1 ? "block" : "none";
-            document.getElementById('monto-final').innerText = id === 1 ? "$55.00" : "$160.00";
-        }
 
         document.getElementById('form-tramite').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -92,20 +43,20 @@
             btn.innerText = "ENVIANDO...";
 
             const rfc = document.getElementById('rfc').value.toUpperCase();
-            const idcif = document.getElementById('idcif').value || "N/A";
-            const whatsapp = document.getElementById('whatsapp').value;
-            const servicio = opcionActual === 1 ? "EXPRESS ($55)" : "ESPECIAL ($160)";
-
-            const texto = `🚀 *NUEVA SOLICITUD*\n\n💰 *Servicio:* ${servicio}\n🆔 *RFC:* ${rfc}\n🔑 *ID CIF:* ${idcif}\n📱 *WhatsApp:* ${whatsapp}\n📅 *Fecha:* ${new Date().toLocaleString('es-MX')}`;
+            const tel = document.getElementById('whatsapp').value;
+            
+            // Formato de texto para que la App lo reconozca fácilmente
+            const texto = `NUEVO PEDIDO\nRFC: ${rfc}\nTel: ${tel}`;
 
             try {
-                // Usamos una URL simple para evitar errores de CORS
-                await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT_ID}&text=${encodeURIComponent(texto)}&parse_mode=Markdown`);
+                // Enviamos el mensaje al bot
+                const url = `https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT_ID}&text=${encodeURIComponent(texto)}`;
+                await fetch(url);
                 
-                alert('¡Listo! Tu solicitud fue enviada correctamente. Te contactaremos por WhatsApp.');
+                alert('¡Listo! Revisa tu WhatsApp pronto.');
                 document.getElementById('form-tramite').reset();
             } catch (err) {
-                alert('Hubo un problema, pero tu solicitud podría haber salido. Verifica con nosotros.');
+                alert('Error al enviar. Intenta de nuevo.');
             } finally {
                 btn.disabled = false;
                 btn.innerText = "Enviar Solicitud";
@@ -113,5 +64,4 @@
         });
     </script>
 </body>
-                        </html>
-    
+</html>
