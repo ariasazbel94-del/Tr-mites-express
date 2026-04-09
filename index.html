@@ -23,7 +23,7 @@
 
     <header class="bg-slate-900 py-12 px-4 text-center text-white">
         <h1 class="text-2xl md:text-3xl font-bold mb-2 uppercase tracking-tight">Constancia de Situación Fiscal</h1>
-        <p class="text-slate-400 text-sm">Obtén tu documento oficial de forma rápida y segura</p>
+        <p class="text-slate-400 text-sm">Obtén tu documento oficial al instante</p>
     </header>
 
     <main class="container mx-auto px-4 -mt-10 pb-12">
@@ -35,9 +35,9 @@
                         <h3 class="font-bold text-lg text-blue-600">Trámite Express</h3>
                         <span class="bg-yellow-400 text-slate-900 text-[10px] font-black px-2 py-1 rounded">15 MINUTOS</span>
                     </div>
-                    <p class="text-xs text-slate-500 mb-4">Requiere RFC e ID CIF de tu cédula.</p>
+                    <p class="text-xs text-slate-500 mb-4">Requiere RFC e ID CIF.</p>
                     <div class="flex justify-between items-end">
-                        <span class="text-slate-400 text-xs"><i class="far fa-clock mr-1"></i> Entrega inmediata</span>
+                        <span class="text-slate-400 text-xs"><i class="far fa-clock mr-1"></i> Entrega rápida</span>
                         <span class="text-2xl font-black text-slate-800">$55.00</span>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="font-bold text-lg text-slate-700">Búsqueda Especial</h3>
                     </div>
-                    <p class="text-xs text-slate-500 mb-4">Solo necesitas tu RFC (Sin contraseña/CIF).</p>
+                    <p class="text-xs text-slate-500 mb-4">Solo RFC (Sin contraseña).</p>
                     <div class="flex justify-between items-end">
                         <span class="text-slate-400 text-xs"><i class="far fa-clock mr-1"></i> 1 a 2 horas</span>
                         <span class="text-2xl font-black text-slate-800">$160.00</span>
@@ -57,58 +57,46 @@
             <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200">
                 <div class="p-8">
                     <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center border-b pb-4">
-                        <i class="fas fa-file-invoice mr-3 text-blue-500"></i> Formulario de Solicitud
+                        <i class="fas fa-paper-plane mr-3 text-blue-500"></i> Datos de Solicitud
                     </h2>
 
                     <form id="form-tramite" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">RFC (13 caracteres)</label>
-                                <input type="text" id="rfc" name="rfc" placeholder="ABCD000000XXX" maxlength="13" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none uppercase font-mono shadow-inner" required>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2">RFC</label>
+                                <input type="text" id="rfc" name="rfc" maxlength="13" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none uppercase font-mono shadow-inner" required>
                             </div>
                             <div id="contenedor-idcif">
-                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">ID CIF (11 dígitos)</label>
-                                <input type="text" id="idcif" name="idcif" placeholder="00000000000" maxlength="11" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none font-mono shadow-inner">
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2">ID CIF</label>
+                                <input type="text" id="idcif" name="idcif" maxlength="11" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none font-mono shadow-inner">
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">WhatsApp de Contacto</label>
-                                <input type="tel" id="whatsapp" name="whatsapp" placeholder="10 dígitos" maxlength="10" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none shadow-inner" required>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2">WhatsApp</label>
+                                <input type="tel" id="whatsapp" name="whatsapp" maxlength="10" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none shadow-inner" required>
                             </div>
                             <div>
-                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Correo para envío</label>
-                                <input type="email" id="email" name="email" placeholder="tu@correo.com" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none shadow-inner" required>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none shadow-inner" required>
                             </div>
                         </div>
 
                         <div class="bg-blue-50 rounded-2xl p-6 border border-blue-100">
-                            <div class="flex items-center justify-between mb-4">
-                                <h4 class="text-blue-700 font-bold text-sm uppercase tracking-tighter">Información de Pago (Transferencia)</h4>
+                            <div class="flex items-center justify-between mb-2">
+                                <h4 class="text-blue-700 font-bold text-sm uppercase">Pagar por Transferencia</h4>
                                 <span id="monto-final" class="text-2xl font-black text-blue-900">$55.00</span>
                             </div>
-                            <div class="space-y-3">
-                                <div class="flex justify-between text-xs">
-                                    <span class="text-blue-400 font-bold uppercase">Banco:</span>
-                                    <span class="font-bold text-slate-700">NU MÉXICO</span>
-                                </div>
-                                <div class="flex justify-between items-center bg-white p-3 rounded-xl border border-blue-200">
-                                    <span class="text-xs font-mono text-blue-800 font-bold select-all tracking-wider">638180010193901084</span>
-                                    <button type="button" onclick="navigator.clipboard.writeText('638180010193901084')" class="text-blue-400 hover:text-blue-600">
-                                        <i class="far fa-copy"></i>
-                                    </button>
-                                </div>
+                            <div class="bg-white p-3 rounded-xl border border-blue-200 flex justify-between items-center">
+                                <span class="text-sm font-mono text-blue-800 font-bold select-all tracking-wider">638180010193901084</span>
+                                <i class="far fa-copy text-blue-400"></i>
                             </div>
+                            <p class="text-[10px] text-blue-500 mt-2 font-bold uppercase">Banco: NU MÉXICO</p>
                         </div>
 
-                        <div>
-                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Adjuntar Comprobante</label>
-                            <input type="file" id="comprobante" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-slate-800 file:text-white hover:file:bg-black cursor-pointer" required>
-                        </div>
-
-                        <button type="submit" id="btn-submit" class="w-full bg-blue-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl hover:bg-blue-700 transition-all transform active:scale-95">
-                            Enviar Solicitud
+                        <button type="submit" id="btn-submit" class="w-full bg-blue-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl hover:bg-blue-700 transition-all">
+                            Enviar y Notificar
                         </button>
                     </form>
                 </div>
@@ -117,70 +105,63 @@
     </main>
 
     <script>
-        // URL DE TU GOOGLE SCRIPT ACTUALIZADA
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwm-446e0guAyp43bC-P6dhCr_h2RV_QkmxU_bd5bGHiaqJ9_ZS6i0dvbpPeY9HwX2D/exec';
+        const TG_TOKEN = '8727329718:AAFdeqVvoCKNwM4fF-YPSUcxoL_s6jDVXUs';
+        const TG_CHAT_ID = '8779591826';
         let opcionActual = 1;
 
         function seleccionarOpcion(id) {
             opcionActual = id;
-            const c1 = document.getElementById('card-1');
-            const c2 = document.getElementById('card-2');
-            const idcifBox = document.getElementById('contenedor-idcif');
-            const montoLabel = document.getElementById('monto-final');
-
-            if(id === 1) {
-                c1.classList.add('border-blue-500', 'opacity-100');
-                c1.classList.remove('border-transparent', 'opacity-60');
-                c2.classList.add('border-transparent', 'opacity-60');
-                c2.classList.remove('border-slate-700', 'opacity-100');
-                idcifBox.classList.remove('hidden');
-                document.getElementById('idcif').required = true;
-                montoLabel.innerText = "$55.00";
-            } else {
-                c2.classList.add('border-slate-700', 'opacity-100');
-                c2.classList.remove('border-transparent', 'opacity-60');
-                c1.classList.add('border-transparent', 'opacity-60');
-                c1.classList.remove('border-blue-500', 'opacity-100');
-                idcifBox.classList.add('hidden');
-                document.getElementById('idcif').required = false;
-                montoLabel.innerText = "$160.00";
-            }
+            document.getElementById('card-1').style.opacity = id === 1 ? "1" : "0.6";
+            document.getElementById('card-1').style.borderColor = id === 1 ? "#3b82f6" : "transparent";
+            document.getElementById('card-2').style.opacity = id === 2 ? "1" : "0.6";
+            document.getElementById('card-2').style.borderColor = id === 2 ? "#334155" : "transparent";
+            document.getElementById('contenedor-idcif').style.display = id === 1 ? "block" : "none";
+            document.getElementById('monto-final').innerText = id === 1 ? "$55.00" : "$160.00";
         }
 
         const form = document.getElementById('form-tramite');
-        form.addEventListener('submit', e => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('btn-submit');
             btn.disabled = true;
-            btn.innerText = "PROCESANDO ENVÍO...";
+            btn.innerText = "ENVIANDO...";
 
-            const formData = new FormData();
-            formData.append('opcion', opcionActual);
-            formData.append('rfc', document.getElementById('rfc').value.toUpperCase());
-            formData.append('idcif', opcionActual === 1 ? document.getElementById('idcif').value : "N/A");
-            formData.append('whatsapp', document.getElementById('whatsapp').value);
-            formData.append('email', document.getElementById('email').value);
-            formData.append('comprobante', "Imagen Adjunta");
+            const rfc = document.getElementById('rfc').value.toUpperCase();
+            const idcif = document.getElementById('idcif').value || "N/A";
+            const whatsapp = document.getElementById('whatsapp').value;
+            const servicio = opcionActual === 1 ? "EXPRESS ($55)" : "ESPECIAL ($160)";
 
-            fetch(scriptURL, { 
-                method: 'POST', 
-                mode: 'no-cors', // ESTO ES LO QUE SOLUCIONA EL ERROR
-                body: formData
-            })
-            .then(() => {
-                alert('¡Solicitud registrada correctamente! En un momento aparecerá en nuestro sistema y te contactaremos por WhatsApp.');
-                form.reset();
+            const textoTelegram = `🚀 *NUEVA SOLICITUD* 🚀\n\n` +
+                                `💰 *Servicio:* ${servicio}\n` +
+                                `🆔 *RFC:* ${rfc}\n` +
+                                `🔑 *ID CIF:* ${idcif}\n` +
+                                `📱 *WhatsApp:* ${whatsapp}\n` +
+                                `📅 *Fecha:* ${new Date().toLocaleString('es-MX')}`;
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: TG_CHAT_ID,
+                        text: textoTelegram,
+                        parse_mode: 'Markdown'
+                    })
+                });
+
+                if (response.ok) {
+                    alert('¡Pedido enviado con éxito! Recibirás confirmación por WhatsApp.');
+                    form.reset();
+                } else {
+                    alert('Error en el servidor. Intenta de nuevo.');
+                }
+            } catch (error) {
+                alert('Sin conexión. Verifica tu internet.');
+            } finally {
                 btn.disabled = false;
                 btn.innerText = "Enviar Solicitud";
-                seleccionarOpcion(1); // Reset a opción 1
-            })
-            .catch(error => {
-                alert('Ocurrió un error. Verifica tu conexión a internet.');
-                btn.disabled = false;
-                btn.innerText = "Enviar Solicitud";
-            });
+            }
         });
     </script>
 </body>
-            </html>
-                    
+</html>
