@@ -3,75 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trámites Express | WhatsApp</title>
+    <title>Trámites Express | Constancia</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-slate-50 text-slate-800 font-sans">
 
-    <nav class="bg-white shadow-sm py-4 border-b-2 border-green-500 px-4">
-        <div class="container mx-auto font-bold uppercase tracking-tighter flex items-center">
-            <i class="fab fa-whatsapp text-green-500 mr-2 text-xl"></i>
-            Trámites Express
+    <nav class="bg-white shadow-sm py-4 border-b-2 border-blue-600">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="bg-blue-600 p-2 rounded-lg shadow-md"><i class="fas fa-bolt text-white"></i></div>
+                <span class="text-xl font-bold text-slate-700 uppercase tracking-tighter">Trámites Express</span>
+            </div>
+            <div class="text-[10px] bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold animate-pulse">SERVIDOR ACTIVO</div>
         </div>
     </nav>
 
-    <main class="container mx-auto px-4 py-8">
-        <div class="max-w-md mx-auto bg-white rounded-3xl shadow-xl p-6 border border-slate-200">
-            <h2 class="text-xl font-bold mb-6 text-center">SOLICITAR CONSTANCIA</h2>
+    <header class="bg-slate-900 py-12 px-4 text-center text-white">
+        <h1 class="text-2xl font-bold mb-2 uppercase tracking-tight">Constancia de Situación Fiscal</h1>
+        <p class="text-slate-400 text-sm">Proceso rápido vía WhatsApp</p>
+    </header>
+
+    <main class="container mx-auto px-4 -mt-10 pb-12">
+        <div class="max-w-4xl mx-auto">
             
-            <form id="form-whatsapp" class="space-y-4">
-                <div>
-                    <label class="text-[10px] font-bold text-slate-400 uppercase ml-2">RFC del Cliente</label>
-                    <input type="text" id="rfc" placeholder="ABCD000000XXX" maxlength="13" class="w-full p-4 bg-slate-50 border rounded-xl outline-none uppercase font-mono shadow-inner" required>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div id="card-1" onclick="seleccionarOpcion(1)" class="cursor-pointer bg-white rounded-2xl shadow-lg border-4 border-blue-500 p-6 transform transition hover:scale-[1.01]">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-bold text-lg text-blue-600 uppercase">Trámite Express</h3>
+                        <span class="bg-yellow-400 text-slate-900 text-[10px] font-black px-2 py-1 rounded">15 MIN</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4">RFC + ID CIF de tu cédula.</p>
+                    <div class="flex justify-between items-end">
+                        <span class="text-2xl font-black text-slate-800">$55.00</span>
+                    </div>
                 </div>
 
-                <div>
-                    <label class="text-[10px] font-bold text-slate-400 uppercase ml-2">WhatsApp de Contacto</label>
-                    <input type="tel" id="tel_cliente" placeholder="10 DÍGITOS" maxlength="10" class="w-full p-4 bg-slate-50 border rounded-xl outline-none shadow-inner" required>
+                <div id="card-2" onclick="seleccionarOpcion(2)" class="cursor-pointer bg-white rounded-2xl shadow-lg border-4 border-transparent p-6 transform transition hover:scale-[1.01] opacity-60">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-bold text-lg text-slate-700 uppercase">Búsqueda Especial</h3>
+                        <span class="bg-slate-200 text-slate-700 text-[10px] font-black px-2 py-1 rounded">2 HORAS</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4">Solo RFC (Sin contraseña).</p>
+                    <div class="flex justify-between items-end">
+                        <span class="text-2xl font-black text-slate-800">$160.00</span>
+                    </div>
                 </div>
+            </div>
 
-                <div class="bg-green-50 p-4 rounded-xl border border-green-100 text-center">
-                    <p class="text-[10px] font-bold text-green-600 uppercase">Pago Vía Transferencia</p>
-                    <p class="font-mono font-bold text-slate-700">638180010193901084</p>
+            <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
+                <div class="p-8">
+                    <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center border-b pb-4">
+                        <i class="fab fa-whatsapp mr-3 text-green-500 text-2xl"></i> Finalizar por WhatsApp
+                    </h2>
+
+                    <form id="form-final" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2">RFC del Cliente</label>
+                                <input type="text" id="rfc" placeholder="ABCD000000XXX" maxlength="13" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none uppercase font-mono shadow-inner" required>
+                            </div>
+                            <div id="contenedor-idcif">
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-2">ID CIF (11 dígitos)</label>
+                                <input type="text" id="idcif" placeholder="00000000000" maxlength="11" class="w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none font-mono shadow-inner">
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 rounded-2xl p-6 border border-blue-100">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-blue-700 font-bold text-xs uppercase tracking-widest">Transferencia NU</span>
+                                <span id="monto-final" class="text-2xl font-black text-blue-900">$55.00</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-xl border border-blue-200 text-center font-mono font-bold text-blue-800 tracking-widest text-lg">
+                                638180010193901084
+                            </div>
+                            <p class="text-[10px] text-center text-blue-400 mt-2 font-bold uppercase">Banco: NU MÉXICO</p>
+                        </div>
+
+                        <button type="submit" class="w-full bg-green-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-green-700 shadow-xl transition-all transform active:scale-95 flex items-center justify-center">
+                            <i class="fab fa-whatsapp mr-3 text-2xl"></i>
+                            Enviar Pedido a WhatsApp
+                        </button>
+                    </form>
                 </div>
-
-                <button type="submit" class="w-full bg-green-600 text-white py-4 rounded-xl font-bold uppercase shadow-lg hover:bg-green-700 transition-all flex items-center justify-center">
-                    <i class="fab fa-whatsapp mr-2 text-xl"></i>
-                    Enviar por WhatsApp
-                </button>
-            </form>
+            </div>
         </div>
     </main>
 
     <script>
-        document.getElementById('form-whatsapp').addEventListener('submit', function(e) {
+        let opcionActual = 1;
+
+        function seleccionarOpcion(id) {
+            opcionActual = id;
+            document.getElementById('card-1').style.borderColor = id === 1 ? "#3b82f6" : "transparent";
+            document.getElementById('card-1').style.opacity = id === 1 ? "1" : "0.6";
+            document.getElementById('card-2').style.borderColor = id === 2 ? "#334155" : "transparent";
+            document.getElementById('card-2').style.opacity = id === 2 ? "1" : "0.6";
+            document.getElementById('contenedor-idcif').style.display = id === 1 ? "block" : "none";
+            document.getElementById('monto-final').innerText = id === 1 ? "$55.00" : "$160.00";
+        }
+
+        document.getElementById('form-final').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Configuración del receptor
-            const miTelefono = "525534451115"; // Tu número con código de país
-            
-            // Datos del formulario
+            const miTelefono = "525534451115"; 
             const rfc = document.getElementById('rfc').value.toUpperCase();
-            const telCliente = document.getElementById('tel_cliente').value;
-            const fecha = new Date().toLocaleString();
+            const idcif = document.getElementById('idcif').value || "N/A";
+            const servicio = opcionActual === 1 ? "EXPRESS ($55)" : "ESPECIAL ($160)";
 
-            // Construir el mensaje
             const mensaje = encodeURIComponent(
-                `🚀 *NUEVO PEDIDO DE TRÁMITE*\n\n` +
+                `🚀 *NUEVO PEDIDO: TRÁMITES EXPRESS*\n\n` +
+                `🛠 *Servicio:* ${servicio}\n` +
                 `🆔 *RFC:* ${rfc}\n` +
-                `📱 *Tel. Cliente:* ${telCliente}\n` +
-                `📅 *Fecha:* ${fecha}\n\n` +
-                `✅ Ya realicé mi pago. Quedo a la espera.`
+                `🔑 *ID CIF:* ${idcif}\n\n` +
+                `✅ Ya realicé la transferencia. Envío comprobante a continuación.`
             );
 
-            // Crear el enlace de WhatsApp
-            const urlWhatsapp = `https://wa.me/${miTelefono}?text=${mensaje}`;
-
-            // Abrir WhatsApp en una nueva pestaña
-            window.open(urlWhatsapp, '_blank');
+            window.open(`https://wa.me/${miTelefono}?text=${mensaje}`, '_blank');
         });
     </script>
-
 </body>
-</html>
+                        </html>
+                                    
